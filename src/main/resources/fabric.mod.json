@@ -3,16 +3,10 @@
   "id": "${modid}",
   "name": "${name}",
   "version": "${version}",
-  "description": "Ciallo～ (∠・ω< )⌒★",
   "authors": [
     "MakeCat"
   ],
-  "icon": "assets/example/icon.png",
   "environment": "*",
-  "entrypoints": {
-  },
-  "mixins": [
-  ],
   "depends": {
     "minecraft": "~${minecraft_version}",
     "fabricloader": ">=${loader_version}",
