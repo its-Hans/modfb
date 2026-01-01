@@ -4,6 +4,7 @@
 
 .gradle/
 build/
+run/
 
 *.hprof
 hs_err_pid*
