@@ -5,6 +5,14 @@ plugins {
     id 'fabric-loom' version "${loom_version}"
 }
 
+java {
+    sourceCompatibility = targetCompatibility = java_version
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = Integer.valueOf(java_version)
+}
+
 repositories {
     maven { url='https://maven.krysztal.dev/releases' }
 }
