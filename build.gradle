@@ -37,23 +37,27 @@ loom {
     }
 }
 
-processResources {
-    duplicatesStrategy = DuplicatesStrategy.FAIL
-
+def declInputs(TaskInputs inputs, Iterable<String> properties) {
     inputs.properties(
-            [
-                    "name",
-                    "modid",
-                    "version",
-                    "minecraft_version",
-                    "loader_version",
-                    "fabric_version",
-                    "fabric_kotlin_version",
-                    "krysztal_scala_version"
-            ].collectEntries {
+            properties.collectEntries {
                 [it, project[it]]
             }
     )
+}
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.FAIL
+
+    declInputs(inputs, [
+            "name",
+            "modid",
+            "version",
+            "minecraft_version",
+            "loader_version",
+            "fabric_version",
+            "fabric_kotlin_version",
+            "krysztal_scala_version"
+    ])
 
     filesMatching('fabric.mod.json') {
         expand(inputs.properties) {
